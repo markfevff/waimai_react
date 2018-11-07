@@ -1,8 +1,8 @@
-import { ADD_TODO } from './actionTypes.js';
+import { CHANGE_TAB } from './actionTypes';
 
-export const addTodo = (obj)=>{
+export function changeTab(activeKey){
     return{
-        type: ADD_TODO,
-        obj: obj
+        type: CHANGE_TAB,
+        activeKey
     }
 }

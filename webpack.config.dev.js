@@ -43,7 +43,13 @@ const htmlArray = getHtmlArray(entryMap);
 
 module.exports = {
     mode: 'development',
+    devServer: {
+      contentBase: devPath
+    },
     entry: entryMap,
+    resolve: {
+      extensions: ['.js','.jsx']//import引入文件时不需要标明扩展名'.js','.jsx'
+    },
     output: {
         path: devPath,
         filename: '[name].min.js'
@@ -62,7 +68,15 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader','css-loader','scss-loader'],
+                use: ['style-loader','css-loader','sass-loader',{
+                    /*
+                    * sass-resources-loader将options中的sass资源都自动require到所有的sass模块中，而无需在每个文件中手动导入它们
+                    * */
+                    loader: "sass-resources-loader",
+                    options: {
+                        resources: srcRoot + '/component/rem_function.scss'
+                    }
+                }],
                 include: srcRoot
             },
             {
@@ -72,7 +86,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-
-    ].concat(htmlArray)
+    plugins: [].concat(htmlArray)
 };

@@ -1,25 +1,30 @@
-import {ADD_TODO} from '../actions/actionTypes.js';
+import {CHANGE_TAB} from '../actions/actionTypes';
 
 const initState = {
-    num: 0,
+    tabs: [
+        {
+            name: '首页',
+            key: 'home',
+        },
+        {
+            name: '订单',
+            key: 'order',
+        },
+        {
+            name: '我的',
+            key: 'my',
+        }
+    ],
+    activeKey: 'home'
 };
 
-const addTodo = (state,action)=>{
-    let objNum = action.obj.num;
-    let num = state.num;
-
-    return{
-        num: num + objNum
-    }
-};
-
-export function tabReducer(state=initState,action){
+function tabReducer(state=initState,action){
     switch(action.type) {
-        case ADD_TODO:
-            return addTodo(state,action);
+        case CHANGE_TAB:
+            return {...state,...{activeKey:action.activeKey}};
         default:
             return state;
     }
 }
 
-// export default tabReducer;
+export default tabReducer;

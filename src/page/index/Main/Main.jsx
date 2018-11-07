@@ -1,30 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTodo} from '../actions/tabAction.js';
-import {store} from '../store.js';
+import BottomBar from '../BottomBar/BottomBar';
+import store from '../store';
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
-    }
-    click() {
-        this.props.dispatch(addTodo({
-            num: 10
-        }))
     }
     render() {
-        let num = this.props.num;
         return(
-            <div onClick={this.click.bind(this)}>{num}</div>
+            <div>
+                <BottomBar/>
+            </div>
         );
     }
 }
 
-Main = connect((state)=>{
-    return{
-        num: state.tabReducer.num,
-    }
-})(Main);
+Main = connect((state)=>({
+
+}))(Main);
 
 export default Main;

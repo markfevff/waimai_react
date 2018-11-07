@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <title>index</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <!--<link rel="stylesheet" href="./static/reset.css">-->
+    <script>
+        /*
+        * 动态设置rem
+        * */
+        (function(){
+            var docEl = document.documentElement;
+
+            function setRemUint(){
+                var rem = docEl.clientWidth / 10;
+                docEl.style.fontSize = rem + 'px';
+            }
+
+            setRemUint();
+
+            window.addEventListener('resize', setRemUint);
+        })();
+    </script>
 </head>
 <body>
     <div id="root"></div>
