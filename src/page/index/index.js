@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDom from 'react-dom';//不可以加大括号
 
 import {Provider} from 'react-redux';
-import Main from './Main/Main.jsx';
+import Container from './Main/Container';
 
 import store from './store';
 
 ReactDom.render(
     <Provider store={store}>
-        <Main/>
+        <Container/>
     </Provider>,
     document.getElementById('root')
 );

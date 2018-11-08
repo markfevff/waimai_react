@@ -1,0 +1,20 @@
+.search-bar{
+  position: absolute;
+  top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .location-bar{
+    width: 140px;
+    height: 30px;
+    background: rgba(0,0,0,0.33);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .location-icon{
+    //background-image: url('');
+  }
+}

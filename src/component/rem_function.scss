@@ -1,0 +1,9 @@
+/*
+  通过px转化为rem
+  取37.5px是因为设计稿是375px的，对应的根元素的大小是37.5px
+  如 传入px为75，获得的为2rem
+*/
+@function px2rem($px){
+  $rem: 37.5px;
+  @return ($px / $rem) + rem;
+}

@@ -1,23 +1,25 @@
 import React from 'react';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import BottomBar from '../BottomBar/BottomBar';
-import store from '../store';
+import Home from '../Home/Home';
+// import store from '../store';
 
-class Main extends React.Component {
+export default class Main extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return(
             <div>
+                <Home />
                 <BottomBar/>
             </div>
         );
     }
 }
 
-Main = connect((state)=>({
+/*export default connect((state)=>({
 
-}))(Main);
+}))(Main);*/
 
-export default Main;
+// export default Main;

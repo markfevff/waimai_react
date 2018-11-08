@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -23,6 +24,11 @@ function getHtmlArray(entryMap) {
     return htmlArray;
 }
 
+/*getEntry()
+*
+* 获取入口文件
+* 遍历'./src/page'下的文件中的index.js，获取入口文件
+* */
 function getEntry(){
     let entryMap = {};
     fs.readdirSync(pageDir).forEach((pathname)=>{
@@ -44,11 +50,12 @@ const htmlArray = getHtmlArray(entryMap);
 module.exports = {
     mode: 'development',
     devServer: {
-      contentBase: devPath
+        contentBase: devPath,
+        hot: true
     },
     entry: entryMap,
     resolve: {
-      extensions: ['.js','.jsx']//import引入文件时不需要标明扩展名'.js','.jsx'
+        extensions: ['.js','.jsx']//import引入文件时不需要标明扩展名'.js','.jsx'
     },
     output: {
         path: devPath,
@@ -58,7 +65,7 @@ module.exports = {
         rules: [
             {
               test: /\.(js|jsx)$/,
-                use: [{loader:'babel-loader'}],
+                use: [{loader:'babel-loader'},{loader:'eslint-loader'}],
                 include: srcRoot
             },
             {
@@ -86,5 +93,8 @@ module.exports = {
             }
         ]
     },
-    plugins: [].concat(htmlArray)
+    plugins: [
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ].concat(htmlArray)
 };
