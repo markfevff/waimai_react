@@ -1,20 +1,65 @@
 .search-bar{
   position: absolute;
-  top: 14px;
+  top: px2rem(14px);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   .location-bar{
-    width: 140px;
-    height: 30px;
+    max-width: px2rem(140px);
+    height: px2rem(28px);
     background: rgba(0,0,0,0.33);
-    border-radius: 30px;
+    border-radius: px2rem(28px);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: px2rem(10px);
   }
   .location-icon{
-    //background-image: url('');
+    width: px2rem(20px);
+    height: px2rem(20px);
+    background-image: url('../../../../static/img/address.png');
+    background-size: cover;
+    margin-left: px2rem(10px);
+    margin-right: px2rem(5px);
+  }
+  .location-name{
+    max-width: px2rem(90px);
+    overflow: hidden;
+    position: relative;
+    font-size: px2rem(14px);
+    color: #fff;
+    line-height: px2rem(28px);
+    margin-right: px2rem(5px);
+  }
+  .location-arrow{
+    width: px2rem(15px);
+    height: px2rem(15px);
+    background-image: url('../../../../static/img/arrowIcon.png');
+    background-size: cover;
+    margin-right: px2rem(5px);
+  }
+  .search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45%;
+    height: px2rem(28px);
+    background: #fff;
+    border-radius: px2rem(28px);
+    margin-left: px2rem(10px);
+  }
+  .search-icon{
+    width: px2rem(15px);
+    height: px2rem(15px);
+    background-image: url('../../../../static/img/searchIcon.png');
+    background-size: cover;
+    margin-left: px2rem(10px);
+  }
+  .search-text{
+    font-size: px2rem(14px);
+    color: #333;
+    line-height: px2rem(28px);
+    margin-left: px2rem(5px);
   }
 }

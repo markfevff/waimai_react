@@ -11,11 +11,12 @@ export default class SearchBar extends React.Component{
             <div className="search-bar">
                 <div className="location-bar">
                     <div className="location-icon"></div>
-                    <div className="location-name"></div>
+                    <div className="location-name">上海</div>
+                    <div className="location-arrow"></div>
                 </div>
                 <div className="search">
                     <div className="search-icon"></div>
-                    <div className="search-text"></div>
+                    <div className="search-text">鸡翅</div>
                 </div>
             </div>
         )
