@@ -64,7 +64,7 @@ module.exports = {
     module: {
         rules: [
             {
-              test: /\.(js|jsx)$/,
+                test: /\.(js|jsx)$/,
                 use: [{loader:'babel-loader'},{loader:'eslint-loader'}],
                 include: srcRoot
             },
@@ -81,7 +81,7 @@ module.exports = {
                     * */
                     loader: "sass-resources-loader",
                     options: {
-                        resources: srcRoot + '/component/rem_function.scss'
+                        resources: [srcRoot + '/component/rem_function.scss',srcRoot + '/component/common.scss']
                     }
                 }],
                 include: srcRoot

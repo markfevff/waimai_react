@@ -1,8 +1,16 @@
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
+
+import thunk from 'redux-thunk';//redux的中间件
 
 import {mainReducer} from './reducers/main';
 
-const store = createStore(mainReducer);
+let middleware = [];
+middleware.push(thunk);
+
+const store = createStore(
+    mainReducer,
+    applyMiddleware(...middleware)
+);
 
 if(module.hot){
     module.hot.accept('./reducers/main',()=>{
